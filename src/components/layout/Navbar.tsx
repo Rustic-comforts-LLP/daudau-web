@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 
 const Navbar: React.FC = () => {
@@ -18,12 +18,13 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Solutions', href: '#solutions' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
+            const navLinks = [
+              { name: 'Services', href: '/#services' },
+              { name: 'Solutions', href: '/#solutions' },
+              { name: 'About', href: '/#about' },
+              { name: 'Insights', href: '/blog' },
+              { name: 'Contact', href: '/#contact' },
+            ];
 
   return (
     <nav
@@ -71,34 +72,62 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
+      {/* Mobile Toggle */}
+        <div className="md:hidden flex items-center">
+          <button
+            className="text-white relative z-50 p-2 glass rounded-full"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden glass-dark absolute top-full left-0 right-0 p-6 flex flex-col space-y-4 shadow-xl"
-        >
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-lg font-medium text-white hover:text-primary"
-              onClick={() => setMobileMenuOpen(false)}
+      {/* Fullscreen Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 glass-dark bg-[#030712]/95 flex flex-col items-center justify-center space-y-8 backdrop-blur-2xl"
+          >
+            {navLinks.map((link, i) => (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 + 0.1 }}
+              >
+                <Link
+                  href={link.href}
+                  className="text-3xl font-bold text-white hover:text-primary transition-colors tracking-tight"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              </motion.div>
+            ))}
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.1 + 0.1 }}
             >
-              {link.name}
-            </Link>
-          ))}
-        </motion.div>
-      )}
+              <Link
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-8 px-8 py-4 bg-primary text-primary-foreground rounded-full text-lg font-bold hover:scale-105 transition-transform flex items-center group"
+              >
+                Consult Our Experts
+                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
