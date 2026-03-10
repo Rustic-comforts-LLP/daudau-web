@@ -1,6 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
-import { blogPosts } from '../page';
+import { blogPosts } from "@/data/blog-posts";
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
