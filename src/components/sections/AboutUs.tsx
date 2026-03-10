@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Cpu, Globe, Rocket } from 'lucide-react';
+import ParallaxElement from '@/components/effects/ParallaxElement';
 
 const AboutUs: React.FC = () => {
   return (
@@ -83,8 +84,10 @@ const AboutUs: React.FC = () => {
               </div>
             </motion.div>
             
-            {/* Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/20 rounded-full blur-[100px] z-0" />
+            {/* Background Glow with Parallax */}
+            <ParallaxElement offset={80} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/20 rounded-full blur-[100px]" />
+            </ParallaxElement>
           </div>
         </div>
       </div>

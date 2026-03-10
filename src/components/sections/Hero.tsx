@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Terminal } from 'lucide-react';
+import ParallaxElement from '@/components/effects/ParallaxElement';
 
 const Hero: React.FC = () => {
   return (
@@ -57,9 +58,13 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0" />
-      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none z-0" />
+      {/* Decorative Elements with Parallax */}
+      <ParallaxElement offset={150} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
+      </ParallaxElement>
+      <ParallaxElement offset={-100} className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px]" />
+      </ParallaxElement>
     </section>
   );
 };

@@ -4,6 +4,9 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import MatrixBackground from "@/components/effects/MatrixBackground";
 import CustomCursor from "@/components/effects/CustomCursor";
+import LoadingScreen from "@/components/effects/LoadingScreen";
+import PageWrapper from "@/components/layout/PageWrapper";
+import Script from "next/script";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -78,12 +81,41 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${outfit.variable} ${inter.variable} antialiased font-sans`}
+        className={`${outfit.variable} ${inter.variable} antialiased font-sans flex flex-col min-h-screen`}
       >
+        <LoadingScreen />
         <CustomCursor />
         <MatrixBackground />
         <Navbar />
-        {children}
+        <PageWrapper>
+          {children}
+        </PageWrapper>
+
+        {/* Structured Data / JSON-LD for SEO */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Dau Dau",
+              "url": "https://daudau.in",
+              "logo": "https://daudau.in/favicon.ico",
+              "description": "Dau Dau provides innovative digital solutions, from recruiting and HRMS to advanced POS systems and agentic workflows.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-555-123-4567",
+                "contactType": "customer service",
+                "areaServed": ["IN", "Global"],
+                "availableLanguage": ["en"]
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/daudau"
+              ]
+            })
+          }}
+        />
       </body>
     </html>
   );
