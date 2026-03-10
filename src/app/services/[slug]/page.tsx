@@ -77,6 +77,12 @@ const serviceData = {
   }
 };
 
+export function generateStaticParams() {
+  return Object.keys(serviceData).map((slug) => ({
+    slug: slug,
+  }));
+}
+
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const service = serviceData[slug as keyof typeof serviceData];
