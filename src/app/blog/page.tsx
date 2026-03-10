@@ -1,6 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { blogPosts } from "@/data/blog-posts";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Insights & Research | Dau Dau Blog',
+  description: 'Deep dives into Agentic AI, modern retail infrastructure, and the future of global work.',
+};
 
 export default function BlogIndex() {
   return (

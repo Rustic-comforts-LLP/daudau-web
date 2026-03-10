@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import NetworkBackground from "@/components/effects/NetworkBackground";
+import TopologyBackground from "@/components/effects/TopologyBackground";
 import CustomCursor from "@/components/effects/CustomCursor";
 import LoadingScreen from "@/components/effects/LoadingScreen";
 import PageWrapper from "@/components/layout/PageWrapper";
@@ -87,7 +87,7 @@ export default function RootLayout({
       >
         <LoadingScreen />
         <CustomCursor />
-        <NetworkBackground />
+        <TopologyBackground />
         <Navbar />
         <PageWrapper>
           {children}

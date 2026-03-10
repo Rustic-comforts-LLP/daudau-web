@@ -1,6 +1,17 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
 import { InteractiveIcon3D } from '@/components/effects/InteractiveIcon3D';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const service = serviceData[slug as keyof typeof serviceData];
+  
+  return {
+    title: service ? `${service.title} | Dau Dau Solutions` : 'Dau Dau Solutions',
+    description: service?.description || 'Agentic AI and business technology solutions tailored for the Indian market.',
+  };
+}
 
 const serviceData = {
   'agentic-workflows': {

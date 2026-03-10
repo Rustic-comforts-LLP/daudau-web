@@ -40,7 +40,9 @@ const Footer: React.FC = () => {
               <li><Link href="/services/agentic-workflows" className="hover:text-primary transition-colors">Agentic Workflows</Link></li>
               <li><Link href="/services/pos-systems" className="hover:text-primary transition-colors">POS Systems</Link></li>
               <li><Link href="/services/travel-studio" className="hover:text-primary transition-colors">Travel Studio</Link></li>
+              <li><Link href="/services/hrms" className="hover:text-primary transition-colors">Digital HRMS</Link></li>
               <li><Link href="/services/recruiting" className="hover:text-primary transition-colors">Global Recruiting</Link></li>
+              <li><Link href="/services/workplace-support" className="hover:text-primary transition-colors">Workplace Support</Link></li>
             </ul>
           </div>
 
@@ -49,8 +51,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-muted-foreground">
               <li><Link href="/blog" className="hover:text-primary transition-colors">Insights & Blog</Link></li>
               <li><Link href="/#about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Case Studies</Link></li>
-              <li><Link href="#" className="hover:text-primary transition-colors">Careers</Link></li>
+              <li><Link href="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
+              <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
               <li><Link href="/#contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -83,9 +85,9 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} DAU DAU. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Cookies</a>
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
           </div>
         </div>
       </div>

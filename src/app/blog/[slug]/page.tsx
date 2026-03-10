@@ -3,6 +3,17 @@ import { redirect } from 'next/navigation';
 import { blogPosts } from '@/data/blog-posts';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+  
+  return {
+    title: post ? `${post.title} | Dau Dau Blog` : 'Dau Dau Blog',
+    description: post?.excerpt || 'Deep dives into Agentic AI, modern retail infrastructure, and the future of global work.',
+  };
+}
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({
