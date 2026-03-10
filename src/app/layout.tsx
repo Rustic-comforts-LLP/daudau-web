@@ -19,6 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://daudau.in"),
   title: "Dau Dau | Modern Business Solutions & Agentic Workflows in India",
   description: "Dau Dau provides innovative digital solutions, from recruiting and HRMS to advanced POS systems and agentic workflows tailored for the Indian market and global businesses.",
   keywords: "Dau Dau, Agentic Workflow India, POS System India, HRMS, Recruiting services India, Travel Itinerary Studio, Business Solutions India, Tech provider India",
