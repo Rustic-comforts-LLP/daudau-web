@@ -1,6 +1,6 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
-import { blogPosts } from "@/data/blog-posts";
+import { redirect } from 'next/navigation';
+import { blogPosts } from '@/data/blog-posts';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
@@ -15,7 +15,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
-    notFound();
+    redirect('/404');
   }
 
   return (

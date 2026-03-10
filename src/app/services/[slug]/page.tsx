@@ -1,5 +1,5 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { InteractiveIcon3D } from '@/components/effects/InteractiveIcon3D';
 
 const serviceData = {
@@ -88,7 +88,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = serviceData[slug as keyof typeof serviceData];
 
   if (!service) {
-    notFound();
+    redirect('/404');
   }
 
   return (
