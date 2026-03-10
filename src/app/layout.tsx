@@ -6,6 +6,7 @@ import MatrixBackground from "@/components/effects/MatrixBackground";
 import CustomCursor from "@/components/effects/CustomCursor";
 import LoadingScreen from "@/components/effects/LoadingScreen";
 import PageWrapper from "@/components/layout/PageWrapper";
+import Footer from "@/components/layout/Footer";
 import Script from "next/script";
 
 const outfit = Outfit({
@@ -91,6 +92,7 @@ export default function RootLayout({
         <PageWrapper>
           {children}
         </PageWrapper>
+        <Footer />
 
         {/* Structured Data / JSON-LD for SEO */}
         <Script
