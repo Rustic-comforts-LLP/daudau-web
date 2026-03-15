@@ -108,7 +108,7 @@ export default function RootLayout({
               "description": "Dau Dau provides innovative digital solutions, from recruiting and HRMS to advanced POS systems and agentic workflows.",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+1-555-123-4567",
+                "telephone": "+91-9510733999",
                 "contactType": "customer service",
                 "areaServed": ["IN", "Global"],
                 "availableLanguage": ["en"]
