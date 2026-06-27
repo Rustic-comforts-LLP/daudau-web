@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { Metadata } from 'next';
+import { company, formattedAddress } from '@/data/company';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Dau Dau',
@@ -29,7 +30,7 @@ export default function TermsOfServicePage() {
 
         <div className="prose prose-invert prose-emerald max-w-none prose-lg">
           <p>
-            By accessing or using Dau Dau ("we", "us", or "our") services, including our Point of Sale (POS) software, HRMS tools, recruiting pipelines, and agentic workflows, you agree to be bound by these Terms.
+            By accessing or using Dau Dau services operated by {company.legalName} (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), including our Point of Sale (POS) software, HRMS tools, recruiting pipelines, and agentic workflows, you agree to be bound by these Terms.
           </p>
           <br />
 
@@ -59,6 +60,13 @@ export default function TermsOfServicePage() {
           <h3>4. Contact</h3>
           <p>
             If you have any queries regarding any of our terms, please consult our experts or contact us at <a href="mailto:legal@daudau.in" className="text-primary hover:underline">legal@daudau.in</a>.
+          </p>
+          <br />
+          <h3>5. Legal Entity</h3>
+          <p>
+            {company.legalName}<br />
+            GSTIN: {company.gstin}<br />
+            Registered office: {formattedAddress}
           </p>
         </div>
       </div>

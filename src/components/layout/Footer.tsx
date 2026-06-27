@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Send, Twitter, Linkedin, Github, Mail } from 'lucide-react';
+import { Send, Twitter, Linkedin, Github } from 'lucide-react';
+import { company, formattedAddress } from '@/data/company';
 
 const Footer: React.FC = () => {
   return (
@@ -80,14 +81,21 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} DAU DAU. All rights reserved.
-          </p>
-          <div className="flex space-x-6 text-sm text-muted-foreground">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
+        <div className="pt-8 border-t border-white/5 flex flex-col gap-6">
+          <div className="text-sm text-muted-foreground space-y-1">
+            <p className="text-white/80 font-medium">{company.legalName}</p>
+            <p>GSTIN: {company.gstin}</p>
+            <p>{formattedAddress}</p>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-muted-foreground text-sm">
+              © {new Date().getFullYear()} {company.legalName}. All rights reserved.
+            </p>
+            <div className="flex space-x-6 text-sm text-muted-foreground">
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+              <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
+            </div>
           </div>
         </div>
       </div>

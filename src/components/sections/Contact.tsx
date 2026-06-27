@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
+import { company, formattedAddress } from '@/data/company';
 
 const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -62,8 +63,10 @@ const Contact: React.FC = () => {
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Location</p>
-                    <p className="font-medium text-white">IT Park, Bangalore, India</p>
+                    <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Registered Office</p>
+                    <p className="font-medium text-white">{company.legalName}</p>
+                    <p className="text-muted-foreground text-sm mt-1">{formattedAddress}</p>
+                    <p className="text-muted-foreground text-sm">GSTIN: {company.gstin}</p>
                   </div>
                 </div>
               </div>

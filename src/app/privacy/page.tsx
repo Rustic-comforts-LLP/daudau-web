@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { Metadata } from 'next';
+import { company, formattedAddress } from '@/data/company';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Dau Dau',
@@ -29,7 +30,7 @@ export default function PrivacyPolicyPage() {
 
         <div className="prose prose-invert prose-emerald max-w-none prose-lg">
           <p>
-            At Dau Dau ("Company", "we", "us", or "our"), keeping your data secure and private is a core part of our mission as a technology and infrastructure provider.
+            At Dau Dau, operated by {company.legalName} (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), keeping your data secure and private is a core part of our mission as a technology and infrastructure provider.
           </p>
           <br />
 
@@ -60,6 +61,13 @@ export default function PrivacyPolicyPage() {
           <h3>4. Contacting Us</h3>
           <p>
             If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at: <a href="mailto:privacy@daudau.in" className="text-primary hover:underline">privacy@daudau.in</a>
+          </p>
+          <br />
+          <h3>5. Data Controller</h3>
+          <p>
+            {company.legalName}<br />
+            GSTIN: {company.gstin}<br />
+            Registered office: {formattedAddress}
           </p>
         </div>
       </div>

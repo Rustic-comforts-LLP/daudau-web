@@ -8,6 +8,7 @@ import LoadingScreen from "@/components/effects/LoadingScreen";
 import PageWrapper from "@/components/layout/PageWrapper";
 import Footer from "@/components/layout/Footer";
 import Script from "next/script";
+import { company } from "@/data/company";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -102,10 +103,19 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Dau Dau",
+              "name": company.brandName,
+              "legalName": company.legalName,
               "url": "https://daudau.in",
               "logo": "https://daudau.in/favicon.ico",
+              "taxID": company.gstin,
               "description": "Dau Dau provides innovative digital solutions, from recruiting and HRMS to advanced POS systems and agentic workflows.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": company.address.city,
+                "addressRegion": company.address.state,
+                "postalCode": company.address.pinCode,
+                "addressCountry": "IN"
+              },
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+91-9510733999",
